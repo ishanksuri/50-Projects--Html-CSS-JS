@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  /* if we add any padding or border to an element , it doesnt affect the width of element */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+
+  display: flex;
+  /* dont need flex flex-direction: column here */
+  /* flex-direction: column; */
+  /* if flex-direction is column then it will align items on the horizontal axis & vice verse for flex-direction: row */
+  align-items: center;
+  /* making it in the middle using justify-content & height  */
+  justify-content: center;
+  height: 100vh;
+  /* dont want scroll bar to show by default */
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background-size: auto 100%;
+  /* for rounded corner , use cover */
+  /* background-size: cover 100%; */
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  /* initial width is 0.5, before exapanding */
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  /* width */
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+/* if the screen is too small, lets say 480px , we only want to display 3 out of 5 cards in total */
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}

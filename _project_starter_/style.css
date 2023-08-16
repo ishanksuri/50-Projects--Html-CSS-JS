@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  /* if we add any padding or border to an element , it doesnt affect the width of element */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  /* if flex-direction is column then it will align items on the horizontal axis & vice verse for flex-direction: row */
+  align-items: center;
+  /* making it in the middle using justify-content & height  */
+  justify-content: center;
+  height: 100vh;
+  /* dont want scroll bar to show by default */
+  overflow: hidden;
+  margin: 0;
+}
