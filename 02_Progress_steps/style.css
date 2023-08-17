@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?Family=Muli&display=swap');
+
+/* creating custom properities for both lines */
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+
+* {
+  /* if we add any padding or border to an element , it doesnt affect the width of element */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f7fb;
+  font-family: 'Muli', sans-serif;
+
+  display: flex;
+  /* if flex-direction is column then it will align items on the horizontal axis & vice verse for flex-direction: row */
+  align-items: center;
+  /* making it in the middle using justify-content & height  */
+  justify-content: center;
+  height: 100vh;
+  /* dont want scroll bar to show by default */
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+/* for grey line behind the blue line  */
+.progress-container::before {
+  /* prerequisitic when we use before or after  */
+  content: '';
+  background-color: var(--line-border-empty);
+  position: absolute;
+  /* want to put in middle vertically i.e 50% from the top */
+  top: 50%;
+  left: 0;
+  /* moving up the line by 50% on verticle axis */
+  transform: translateY(-50%);
+  height: 4px;
+  /*  width of grey empty line */
+  width: 100%;
+  /* to put line behind the numbers */
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  /* want to put in middle vertically i.e 50% from the top */
+  top: 50%;
+  left: 0;
+  /* moving up the line by 50% on verticle axis */
+  transform: translateY(-50%);
+  height: 4px;
+  /* intially width woud be zero */
+  width: 0%;
+  /* to put line behind the numbers */
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  /* to make elements of circle center */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+/* for push effect on button when a user clicks */
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
