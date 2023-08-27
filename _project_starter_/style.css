@@ -9,8 +9,8 @@ body {
   font-family: 'Roboto', sans-serif;
 
   display: flex;
-  flex-direction: column;
   /* if flex-direction is column then it will align items on the horizontal axis & vice verse for flex-direction: row */
+  flex-direction: column;
   align-items: center;
   /* making it in the middle using justify-content & height  */
   justify-content: center;
